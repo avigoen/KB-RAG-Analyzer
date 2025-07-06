@@ -4,6 +4,7 @@ import mimetypes
 import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+import numpy as np
 
 from .documents.base import DocumentParser
 from .documents.html import PositionalHTMLParser

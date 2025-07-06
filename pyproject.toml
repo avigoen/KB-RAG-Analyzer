@@ -1,23 +1,57 @@
 [project]
 name = "knowledgebase-rag-analyzer"
 version = "0.1.0"
-description = "Add your description here"
+description = "Enterprise RAG Pipeline for document analysis and question answering"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.8"
 dependencies = [
-    "chardet>=5.2.0",
-    "langchain>=0.3.26",
-    "langchain-chroma>=0.2.4",
-    "langchain-docling>=1.0.0",
-    "langchain-openai>=0.3.27",
+    # Document parsing
     "pdfplumber>=0.11.7",
     "pymupdf>=1.26.3",
-    "pypdf2>=3.0.1",
     "pytesseract>=0.3.13",
-    "ragas>=0.2.15",
+    "python-docx>=0.8.11",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=4.9.0",
+    "openpyxl>=3.1.0",
+    "pillow>=10.0.0",
+    
+    # Document processing
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    
+    # Embedding models
+    "sentence-transformers>=2.3.0",
+    "torch>=2.0.0",
+    "transformers>=4.30.0",
+    "accelerate>=0.21.0",
+    
+    # Vector stores
+    "chromadb>=0.4.0",
+    
+    # Optional: Milvus support
+    # "pymilvus>=2.3.0",
+    
+    # Utilities
+    "requests>=2.31.0",
+    "tqdm>=4.66.0",
+    "chardet>=5.2.0",
 ]
 
 [dependency-groups]
 dev = [
     "ipykernel>=6.29.5",
+    "pytest>=7.4.0",
+    "black>=23.3.0",
+    "isort>=5.12.0",
 ]
+
+[tool.pytest]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 100
+target-version = ["py38", "py39", "py310", "py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
